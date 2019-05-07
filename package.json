@@ -2,6 +2,7 @@
   "name": "recipe-app",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://mila-sevilla.github.io/recipe-app",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
