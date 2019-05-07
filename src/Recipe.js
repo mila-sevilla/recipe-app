@@ -1,17 +1,26 @@
 import React from 'react'
 import style from './recipe.module.css'
+import Toggle from './Toggle'
 
-const Recipe = ({title,calories,image, ingredients}) => {
+const Recipe = ({title,image, ingredients}) => {
+
     return(
         <div className={style.recipe}>
-            <h2> {title} </h2>
             <img className={style.image}src={image} alt=''/>
-            <ul>
-                {ingredients.map(ingredient => (
-                    <li>{ingredient.text}</li>
-                ))}
-            </ul>
-            <p> {calories} </p>
+            <h2> {title} </h2>
+            <Toggle 
+                render={({on, toggle}) => (
+                    <div>
+                        <button className='expand-button' onClick={toggle} aria-label='expand'> Show Recipe </button>
+                        {on && 
+                            <ul className='ingredients'>
+                                {ingredients.map(ingredient => (
+                                    <li>{ingredient.text} </li>
+                                ))}
+                            </ul>
+                        }
+                    </div>
+            )} /> 
         </div>
     )
 }
