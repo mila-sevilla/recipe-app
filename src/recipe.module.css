@@ -7,7 +7,7 @@
     background: white;
     align-items: center;
     width: 300px;
-    min-height: 370px;
+    min-height: 300px;
 }
 
 .recipe_cover {
@@ -16,14 +16,24 @@
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
-    top: 0;
+    position: relative;
 }
 
 h2 {
-    width: 100%;
-    padding: 0;
+    font-family: 'Lobster', cursive;
+    display: flex;
+    align-items: center;
+    width: 55%;
+    min-height: 40px;
+    padding: 0 20px;
     text-align: center;
     background-color: white; 
+    /* color: #35524A; */
+    color: #484041;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    border-radius: 0 6px 0 0;
 }
 
 ul {
@@ -42,8 +52,15 @@ li {
 }
 
 .expand_button {
+    background: url('./arrow_down.svg') bottom no-repeat;
+    background-size: 26px;
     margin-bottom: 20px;
     width: 100px;
+    padding: 8px 10px 25px 10px;
+    border: none;
+    font-size: 12px;
+    color: #484041;
+    opacity: 0.7;
 }
 
 .expand_wrapper {

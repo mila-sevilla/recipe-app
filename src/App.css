@@ -2,16 +2,11 @@
   min-height: 100vh;
 }
 
-body {
-  /* background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%); */
-  background-color: rgb(245, 255, 249);
-}
-
 h1 {
   text-align: center;
   font-size: 60px;
   font-family: 'Leckerli One', cursive;
-  color: rgb(99, 199, 166);
+  color: #63C7A6;
   margin: 25px 0 35px 0;
 }
 
@@ -32,7 +27,7 @@ h1 {
 }
 
 .search-bar::placeholder {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .search-button {
@@ -43,7 +38,7 @@ h1 {
   height: 37px;
   padding: 0 12px;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
 }
 
