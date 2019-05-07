@@ -4,16 +4,26 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     background: white;
     align-items: center;
-    min-width: 320px;
-    max-width: 400px;
+    width: 300px;
+    min-height: 370px;
+}
+
+.recipe_cover {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow: hidden;
+    top: 0;
 }
 
 h2 {
-    padding: 10px;
+    width: 100%;
+    padding: 0;
     text-align: center;
+    background-color: white; 
 }
 
 ul {
