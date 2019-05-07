@@ -12,8 +12,8 @@ const Recipe = ({title,image, ingredients}) => {
             <h2> {title} </h2>
             <Toggle 
                 render={({on, toggle}) => (
-                    <div>
-                        <button onClick={toggle} aria-label='expand'> Show Recipe </button>
+                    <div className={style.expand_wrapper}>
+                        <button className={style.expand_button} onClick={toggle} aria-label='expand'> Show Recipe </button>
                         {on && 
                             <ul>
                                 {ingredients.map(ingredient => (
