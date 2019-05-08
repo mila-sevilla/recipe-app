@@ -5,6 +5,7 @@ import {
   recipe_cover,
   expand_wrapper,
   expand_button,
+  active,
 } from './recipe.module.css';
 
 const Recipe = ({ title, image, ingredients }) => {
@@ -20,11 +21,16 @@ const Recipe = ({ title, image, ingredients }) => {
 
       <div className={expand_wrapper}>
         <button
-          className={`${expand_button} ${showRecipe ? 'active' : ''}`}
+          className={`${expand_button} ${showRecipe ? active : ''}`}
           type="button"
           aria-label="expand"
           onClick={toggleRecipe}>
           {showRecipe ? 'Hide Recipe' : 'Show Recipe'}
+          <img
+            className="arrow_down"
+            alt="arrow"
+            src="/static/media/arrow_down.svg"
+          />
         </button>
 
         <CSSTransition
