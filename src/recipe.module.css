@@ -69,3 +69,20 @@ li {
     flex-direction: column;
     align-items: center;
 }
+
+/* Animations */
+
+.expand-enter {
+    opacity: 0;
+}
+.expand-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+.expand-exit {
+    opacity: 1;
+}
+.expand-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
