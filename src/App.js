@@ -1,62 +1,77 @@
-import React, {useEffect, useState} from 'react';
-import Recipe from './Recipe'
+import React, { useEffect, useState } from 'react';
+import Recipe from './Recipe';
 import './App.css';
 
 const App = () => {
+  const APP_ID = '0e82bcb9';
+  const APP_KEY = 'af43474ad40246b9beedbc7fe3b3e67b';
 
-  const APP_ID = '0e82bcb9'
-  const APP_KEY = 'af43474ad40246b9beedbc7fe3b3e67b'
-
-  const [recipes, setRecipes] = useState([])
-  const [search, setSearch] = useState('')
-  const [query, setQuery] = useState('chicken')
+  const [loading, setLoading] = useState(false);
+  const [recipes, setRecipes] = useState(null);
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('chicken');
 
   useEffect(() => {
-    getRecipes()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
-
-  const getRecipes = async () => {
-    const response = await fetch( `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
-    const data = await response.json()
-    setRecipes(data.hits)
-  }
+    setLoading(true);
+    async function fetchData() {
+      const response = await fetch(
+        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      );
+      return response.json();
+    }
+    fetchData()
+      .then(({ hits }) => {
+        setLoading(false);
+        setRecipes(hits);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [query]);
 
   const updateSearch = e => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
 
   const getSearch = e => {
-    e.preventDefault()
-    setQuery(search)
-  }
+    e.preventDefault();
+    setQuery(search);
+  };
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1> Recipes </h1>
-      <form onSubmit={getSearch} className='search-form'>
-        <input 
-          className='search-bar' 
-          type='text' 
-          value={search} 
+      <form onSubmit={getSearch} className="search-form">
+        <input
+          className="search-bar"
+          type="text"
+          value={search}
           onChange={updateSearch}
-          placeholder='Enter e.g. chicken'/>
-        <button className='search-button' type='submit'>Search</button>
+          placeholder="Enter e.g. chicken"
+        />
+        <button className="search-button" type="submit">
+          Search
+        </button>
       </form>
-      <div className='recipes'>
-        {recipes.map(recipe => (
-          <Recipe 
-            key={recipe.recipe.label}
-            title={recipe.recipe.label} 
-            calories={recipe.recipe.calories} 
-            image={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredients}
-          />
-        ))}
+      {loading && <div>Fetching recipes ...</div>}
+      {recipes && !recipes.length && <p>no recipes</p>}
+      <div className="recipes">
+        {recipes &&
+          recipes.map(({ recipe }) => {
+            const { label, calories, image, ingredients } = recipe;
+            return (
+              <Recipe
+                key={label}
+                title={label}
+                calories={calories}
+                image={image}
+                ingredients={ingredients}
+              />
+            );
+          })}
       </div>
-    
     </div>
-  )
-}
+  );
+};
 
 export default App;
