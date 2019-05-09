@@ -7,6 +7,7 @@ import {
   expand_button,
   active,
 } from './recipe.module.css';
+import arrowImage from './arrow_down.svg';
 
 const Recipe = ({ title, image, ingredients }) => {
   const [showRecipe, setShowRecipe] = useState(false);
@@ -26,11 +27,7 @@ const Recipe = ({ title, image, ingredients }) => {
           aria-label="expand"
           onClick={toggleRecipe}>
           {showRecipe ? 'Hide Recipe' : 'Show Recipe'}
-          <img
-            className="arrow_down"
-            alt="arrow"
-            src="/static/media/arrow_down.svg"
-          />
+          <img className="arrow_down" alt="arrow" src={arrowImage} />
         </button>
 
         <CSSTransition

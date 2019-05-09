@@ -53,15 +53,17 @@ li {
 }
 
 .expand_button {
-    background: url('./arrow_down.svg') bottom no-repeat;
-    background-size: 26px;
-    margin-bottom: 20px;
+    margin: 10px 0;
     width: 100px;
-    padding: 8px 10px 25px 10px;
     border: none;
     font-size: 12px;
     color: #484041;
     opacity: 0.7;
+}
+
+.expand_button > img {
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
 }
 
 .active > img {
