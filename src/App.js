@@ -60,7 +60,7 @@ const App = () => {
             <div className="loader_spinner" />
           </div>
         )}
-        {recipes && !recipes.length && (
+        {recipes && !loading && !recipes.length && (
           <p className="noRecipesFound">
             No recipes found, try something else!
           </p>
