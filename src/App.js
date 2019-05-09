@@ -53,8 +53,19 @@ const App = () => {
           Search
         </button>
       </form>
-      {loading && <div>Fetching recipes ...</div>}
-      {recipes && !recipes.length && <p>no recipes</p>}
+      <div className="flexWrapper">
+        {loading && (
+          <div className="loader">
+            Searching for recipes ...
+            <div className="loader_spinner" />
+          </div>
+        )}
+        {recipes && !recipes.length && (
+          <p className="noRecipesFound">
+            No recipes found, try something else!
+          </p>
+        )}
+      </div>
       <div className="recipes">
         {recipes &&
           recipes.map(({ recipe }) => {
