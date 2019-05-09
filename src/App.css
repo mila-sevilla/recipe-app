@@ -27,7 +27,6 @@ h1 {
   padding: 0 0 0 12px; 
   height: 35px;
   font-size: 14px;
-  color: #1a1b1a;
 }
 
 .search-bar::placeholder {
@@ -56,10 +55,6 @@ button:hover {
   cursor: pointer;
 }
 
-.noRecipesFound {
-  color: #1a1b1a;
-}
-
 /* Loading animation */
 
 .flexWrapper {
@@ -72,7 +67,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #1a1b1a;
 }
 
 .loader_spinner {
